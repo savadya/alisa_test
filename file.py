@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 cities = {
     'москва': ['1540737/daa6e420d33102bf6947',
                '213044/7df73ae4cc715175059e'],
-    'нью-йорк': ['1652229/728d5c86707054d4745f',
+    'нью-йорк': ['16522s29/728d5c86707054d4745f',
                  '1030494/aca7ed7acefde2606bdc'],
     'париж': ["1652229/f77136c2364eb90a3ea8",
               '3450494/aca7ed7acefde22341bdc']
@@ -25,8 +25,7 @@ cities = {
 # мы будем хранить его имя
 sessionStorage = {}
 
-@app.route('/', methods=['POST'])
-@app.route('/post', methods=['POST'])
+@app.route('/')
 def main():
     logging.info(f'Request: {request.json!r}')
     response = {
