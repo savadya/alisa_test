@@ -10,15 +10,13 @@ logging.basicConfig(level=logging.INFO)
 
 
 cities = {
-    'москва': ['1540737/daa6e420d33102bf6947',
-               '213044/7df73ae4cc715175059e'],
-    'нью-йорк': ['16522s29/728d5c86707054d4745f',
-                 '1030494/aca7ed7acefde2606bdc'],
-    'париж': ["1652229/f77136c2364eb90a3ea8",
-              '3450494/aca7ed7acefde22341bdc']
+    'москва': ['1540737/daa6e420d33102bf6947', '213044/7df73ae4cc715175059e'],
+    'нью-йорк': ['16522s29/728d5c86707054d4745f', '1030494/aca7ed7acefde2606bdc'],
+    'париж': ["1652229/f77136c2364eb90a3ea8", '3450494/aca7ed7acefde22341bdc']
 }
 
 sessionStorage = {}
+
 
 @app.route('/')
 def main():
@@ -74,10 +72,12 @@ def handle_dialog(res, req):
             res['response']['text'] = \
                 'Первый раз слышу об этом городе. Попробуй еще разок!'
 
+
 def get_city(req):
     for entity in req['request']['nlu']['entities']:
         if entity['type'] == 'YANDEX.GEO':
             return entity['value'].get('city', None)
+
 
 def get_first_name(req):
     for entity in req['request']['nlu']['entities']:
