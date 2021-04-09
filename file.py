@@ -8,9 +8,6 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.INFO)
 
-# создаем словарь, в котором ключ — название города,
-# а значение — массив, где перечислены id картинок,
-# которые мы записали в прошлом пункте.
 
 cities = {
     'москва': ['1540737/daa6e420d33102bf6947',
@@ -21,8 +18,6 @@ cities = {
               '3450494/aca7ed7acefde22341bdc']
 }
 
-# создаем словарь, где для каждого пользователя
-# мы будем хранить его имя
 sessionStorage = {}
 
 @app.route('/')
@@ -79,12 +74,10 @@ def handle_dialog(res, req):
             res['response']['text'] = \
                 'Первый раз слышу об этом городе. Попробуй еще разок!'
 
-
 def get_city(req):
     for entity in req['request']['nlu']['entities']:
         if entity['type'] == 'YANDEX.GEO':
             return entity['value'].get('city', None)
-
 
 def get_first_name(req):
     for entity in req['request']['nlu']['entities']:
